@@ -4,15 +4,15 @@
 //
 //返回容器可以储存的最大水量。
 //
-#include <iostream>
 #include <vector>
 using namespace std;
 
-int maxArea(vector<int>& height){
+long long maxArea(vector<int>& height){
     auto start = height.begin();
     auto end = height.end() - 1;
     auto iter = height.end();
-    int temp = 0, area;
+    long long temp = 0;
+    long long area;
     while(start != end){
         iter = end;
         while(start != iter){
