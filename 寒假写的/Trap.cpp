@@ -1,30 +1,40 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
-class Solution {
+class Solution{
 public:
-    int trap(vector<int>& height) {
-        if(height.size() < 3)
+    static int trap(vector<int>& height){
+        if(height.size()< 3)
             return 0;
-        int water = 0, temp = 0;
-        auto iter = height.begin();
-        auto iter1 = iter;
-        while(iter < height.end()){
-            while(*(iter + 1) >= *iter && iter < height.end() - 1) iter++;
-            if(iter == height.end() - 1)
-                break;
-            iter1 = iter + 1;
-            while(*iter1 < *(iter + 1) && iter1 < height.end()){
-                temp += *iter - *iter1;
-                iter1++;
+
+        int water = 0;
+        auto iter_left = height.begin();
+        auto iter_right = height.end()- 1;
+        int left_max = 0, right_max = 0;
+
+        while(iter_left <= iter_right){
+            if(*iter_left < *iter_right){
+                if(*iter_left > left_max)
+                    left_max = *iter_left;
+                else
+                    water += left_max - *iter_left;
+                iter_left++;
+            }else{
+                if(*iter_right > right_max)
+                    right_max = *iter_right;
+                else
+                    water += right_max - *iter_right;
+                iter_right--;
             }
-            if(iter1 == height.end())
-                break;
-            water += temp;
-            if(*iter1 < *iter)
-                water -= distance(iter, iter1) * (*iter - *iter1);
-            iter = iter1;
         }
         return water;
     }
 };
+
+int main(){
+    vector<int> test = {3,2,1,2,1};
+    int water = Solution::trap(test);
+    cout << water << endl;
+    return EXIT_SUCCESS;
+}
