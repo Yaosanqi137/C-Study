@@ -83,7 +83,7 @@ int main(){
     // 迭代器
     auto iter1 = MAP.begin();
     auto iter2 = MAP.end();
-    auto iter3 = hashmap.find(1); // 找到键为 1 的元素，如果找到了就返回对应的迭代器，不然返回 MAP.end()
+    auto iter3 = MAP.find(1); // 找到键为 1 的元素，如果找到了就返回对应的迭代器，不然返回 MAP.end()
     MAP.erase(iter1); // 也可以擦除一个范围，但是容易死，这里 erase 方法没有返回值
     auto j = MAP.erase(1); // 用键来删除对应元素，返回删除元素的数量
     // 映射遍历
