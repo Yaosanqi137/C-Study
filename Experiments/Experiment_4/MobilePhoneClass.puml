@@ -1,0 +1,12 @@
+@startuml
+class MobilePhone{
+- brand : string
+- model : string
+- battery_level : int = 100
+
++ MobilePhone(brandIn : string, modelIn : string) : void
++ charge(minutes : int) : void
++ use(minutes : int) : void
++ displayInfo() : void
+}
+@enduml
