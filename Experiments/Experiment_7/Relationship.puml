@@ -1,0 +1,65 @@
+@startuml
+
+class Person {
++ Person(sexIn : bool)
++ Person(person : const Person&)
++ eat() : bool
++ sleep() : bool
++ ~Person()
++ addAge() : bool
+
+# getSex() : bool
+
+- sex : const bool
+- age : int = 18
+- isSleep : bool = false
+}
+
+class Student {
++ Student(const Person& : person)
++ bool doHomeWork()
++ bool study()
+
+- isStudy : bool = false
+- isDoHW : bool = false
+}
+
+class Employee {
++ Employee(person : const Person&, job : string&, salary : double)
++ bool getSalary()
++ bool changeJob(job : string, salary : double)
+
+- string myJob
+- double mySalary
+}
+
+class PartTime_Graduate_Student {
++ PartTime_Graduate_Student(person : const Person&, student : const Student&, employee : const Employee&)
+}
+
+Person <|-- Student : virtual
+Person <|-- Employee : virtual
+Student <|-- PartTime_Graduate_Student
+Employee <|-- PartTime_Graduate_Student
+
+note top of Person
+  最基本的类, 人类
+  属性有性别、年龄、吃饭、睡觉
+end note
+
+note bottom of Student
+  学生类，虚继承人类
+  学习和做作业互斥
+end note
+
+note right of Employee
+  社畜类，虚继承人类
+  属性有工作和工资
+end note
+
+note left of PartTime_Graduate_Student
+  在职研究生类
+  public继承Student和Employee
+end note
+
+@enduml
