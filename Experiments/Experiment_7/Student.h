@@ -7,7 +7,7 @@ public:
     explicit Student(const Person& person);
     bool doHomeWork();
     bool study();
-
+    ~Student();
 private:
     bool isStudy = false;
     bool isDoHW = false;

@@ -33,3 +33,7 @@ bool Student::study() {
         return true;
     }
 }
+
+Student::~Student(){
+    cout << "学死了(" << endl;
+}
