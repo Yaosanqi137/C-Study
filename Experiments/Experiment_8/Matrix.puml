@@ -1,0 +1,21 @@
+@startuml IntMatrix_UML
+
+class IntMatrix {
+  - matrix: vector<vector<int>>
+  - size: unsigned int
+
+  + IntMatrix(IntMatrix&): default
+  + IntMatrix(unsigned int n): explicit
+  + voidMatrix(): bool
+  + transMatrix(rowFrom: unsigned int, rowTo: unsigned int, pow: int): IntMatrix
+  + exMatrix(rowFrom: unsigned int, rowTo: unsigned int): IntMatrix
+
+  + operator=(Matrix1: const IntMatrix&): IntMatrix&
+  + friend operator>>(is: istream&, Matrix: IntMatrix&): istream&
+  + friend operator<<(os: ostream&, Matrix: IntMatrix&): ostream&
+  + friend operator+(Matrix1: const IntMatrix&, Matrix2: const IntMatrix&): IntMatrix
+  + friend operator-(Matrix1: const IntMatrix&, Matrix2: const IntMatrix&): IntMatrix
+  + friend operator*(Matrix1: const IntMatrix&, Matrix2: const IntMatrix&): IntMatrix
+}
+
+@enduml

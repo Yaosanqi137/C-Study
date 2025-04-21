@@ -2,6 +2,8 @@
 #include <string>
 using namespace std;
 
+class MobilePhone;
+
 class MobilePhone{
     public:
         explicit MobilePhone(string brandIn, string modelIn){
