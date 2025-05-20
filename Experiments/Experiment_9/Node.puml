@@ -1,0 +1,14 @@
+@startuml
+class Node<T> {
+  - next : Node<T>*
+  - data : T
+  --
+  + Node(data : const T&, next : Node<T>* = nullptr)
+  + insertNext(p : const Node*) : bool
+  + delNext() : Node<T>*
+  + nextNode() : Node<T>*
+  + nextNode() const : const Node<T>
+  + change(newData : const T&) : bool
+  + get() : T
+}
+@enduml

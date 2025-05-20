@@ -1,0 +1,35 @@
+@startuml
+class List<T> {
+  - after : List<T>*
+  - previous : List<T>*
+  - begin : List<T>*
+  - end : List<T>*
+  - DATA : T
+  - count : int = 0
+  - pos : int
+
+  - newNode(item : const T&, nextPtr : List<T>* = nullptr) : List<T>*
+  - freeNode(p : List<T>*) : void
+  - copy(list : const List<T>&) : void
+  --
+  + List(data : const T&, next : List<T>* = nullptr, previous : List<T>* = nullptr)
+  + List(list : const List<T>&)
+  + ~List()
+  + operator=(list : const List<T>&) : List<T>
+  + getSize() : int const
+  + isEmpty() : bool const
+  + reset(pos : int = 0) : void
+  + next() : void
+  + endOfList() : bool const
+  + currentPosition() : int const
+  + insertFront(item : const T&) : void
+  + insertRear(item : const T&) : void
+  + insertAt(item : const T&) : void
+  + insertAfter(item : const T&) : void
+  + deleteFront() : T
+  + deleteCurrent() : void
+  + data() : T&
+  + data() const : const T&
+  + clear() : void
+}
+@enduml
